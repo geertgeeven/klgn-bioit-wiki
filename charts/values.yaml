@@ -1,0 +1,33 @@
+# Default values for klgn-bioit-wiki
+
+replicaCount: 2
+
+image:
+  repository: geertgeeven/klgn-bioit-wiki
+  tag: "1.0"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8000
+  targetPort: 80
+
+deployment:
+  containerPort: 8000
+
+labels:
+  app: klgn-bioit-wiki
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
