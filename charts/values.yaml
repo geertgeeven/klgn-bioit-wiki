@@ -11,6 +11,12 @@ imagePullSecrets:
   - name: all-icr-io
 
 service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 8000
+  zone: "eu-de-1"  
+
+service:
   type: ClusterIP
   port: 8000
   targetPort: 8000
