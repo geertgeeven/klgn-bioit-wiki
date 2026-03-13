@@ -4,8 +4,14 @@ metadata:
   name: {{ include "klgn-bioit-wiki.fullname" . }}-service
   labels:
     {{- include "klgn-bioit-wiki.labels" . | nindent 4 }}
+  annotations:
+    # IBM Cloud VPC LoadBalancer annotations
+    service.kubernetes.io/ibm-load-balancer-cloud-provider-ip-type: "public"
+    # Optional: for private load balancer, use:
+    # service.kubernetes.io/ibm-load-balancer-cloud-provider-ip-type: "private"
+    service.kubernetes.io/ibm-load-balancer-cloud-provider-zone: "{{ .Values.service.zone }}"
 spec:
-  type: {{ .Values.service.type }}
+  type: LoadBalancer
   ports:
   - port: {{ .Values.service.port }}
     targetPort: {{ .Values.service.targetPort }}
