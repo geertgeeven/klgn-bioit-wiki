@@ -7,6 +7,9 @@ image:
   tag: "1.0"
   pullPolicy: IfNotPresent
 
+imagePullSecrets:
+  - name: all-icr-io
+
 service:
   type: ClusterIP
   port: 8000
