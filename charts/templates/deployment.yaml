@@ -15,7 +15,7 @@ spec:
         {{- include "klgn-bioit-wiki.selectorLabels" . | nindent 8 }}
     spec:
       imagePullSecrets:
-        {{ toYaml .Values.imagePullSecrets | indent 4 }}
+        {{- toYaml .Values.imagePullSecrets | indent 2 }}
       containers:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
