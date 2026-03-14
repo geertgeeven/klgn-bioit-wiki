@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "klgn-bioit-wiki.fullname" . }}-serviceloadBalancer
+  name: {{ include "klgn-bioit-wiki.fullname" . }}-svc-loadbalancer
   labels:
     {{- include "klgn-bioit-wiki.labels" . | nindent 4 }}
   annotations:
