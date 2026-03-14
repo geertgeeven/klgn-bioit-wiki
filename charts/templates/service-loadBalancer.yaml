@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "klgn-bioit-wiki.fullname" . }}-service-loadBalancer
+  name: {{ include "klgn-bioit-wiki.fullname" . }}-serviceloadBalancer
   labels:
     {{- include "klgn-bioit-wiki.labels" . | nindent 4 }}
   annotations:
@@ -9,12 +9,12 @@ metadata:
     service.kubernetes.io/ibm-load-balancer-cloud-provider-ip-type: "public"
     # Optional: for private load balancer, use:
     # service.kubernetes.io/ibm-load-balancer-cloud-provider-ip-type: "private"
-    service.kubernetes.io/ibm-load-balancer-cloud-provider-zone: "{{ .Values.service-loadBalancer.zone }}"
+    service.kubernetes.io/ibm-load-balancer-cloud-provider-zone: "{{ .Values.serviceloadBalancer.zone }}"
 spec:
   type: LoadBalancer
   ports:
-  - port: {{ .Values.service-loadBalancer.port }}
-    targetPort: {{ .Values.service-loadBalancer.targetPort }}
+  - port: {{ .Values.serviceloadBalancer.port }}
+    targetPort: {{ .Values.serviceloadBalancer.targetPort }}
     protocol: TCP
     name: http
   selector:
