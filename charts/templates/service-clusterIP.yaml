@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "klgn-bioit-wiki.fullname" . }}-service
+  labels:
+    {{- include "klgn-bioit-wiki.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service-clusterIP.type }}
+  ports:
+  - port: {{ .Values.service-clusterIP.port }}
+    targetPort: {{ .Values.service-clusterIP.targetPort }}
+    protocol: TCP
+    name: http
+  selector:
+    {{- include "klgn-bioit-wiki.selectorLabels" . | nindent 4 }}
