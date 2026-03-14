@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "klgn-bioit-wiki.fullname" . }}-serviceClusterIP
+  name: {{ include "klgn-bioit-wiki.fullname" . }}-svc-clusterip
   labels:
     {{- include "klgn-bioit-wiki.labels" . | nindent 4 }}
 spec:
